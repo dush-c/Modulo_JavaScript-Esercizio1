@@ -1,9 +1,13 @@
 // const http = require('http');
-const express = require('express');
-const cors = require('cors');
-const morgan = require('morgan');
+// const express = require('express');
+import express, {Request, Response, NextFunction} from 'express';
+// const cors = require('cors');
+import cors from 'cors';
+// const morgan = require('morgan');
+import morgan from 'morgan';
 
 const app = express();
+
 const cart = [
 	{
         name: 'ssd',
@@ -62,6 +66,7 @@ const cart = [
         quantity: 1
 	}
 ];
+
 app.use(cors());
 app.use(morgan('tiny'));
 
@@ -81,12 +86,12 @@ app.get('/ciao', (req, res, next) => {
 
 });
 
-app.get('/cart-items', (req, res)=> {
+app.get('/api/cart-items', (req, res)=> {
     res.json(cart);
 });
 
 // http.createServer(app).listen(3000);
-app.listen(3000);
+app.listen(3000, () => console.log("Server started on port 3000"));
 
 // http.createServer((req, res) =>{
 //     res.writeHead(200, {'Content-Type': 'text/plain'});
