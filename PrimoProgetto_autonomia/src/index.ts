@@ -113,6 +113,32 @@ app.get("/cart-items/:id", (req, res, next) => {
   res.json(result);
 });
 
+app.delete("/cart-items/:id", (req, res) => {
+  const id = req.params.id;
+  const indexToRemove = cart_items.findIndex(
+    (item) => item.id === req.params.id
+  );
+
+  if (indexToRemove !== -1) {
+    //se l'indice esiste devo andare ad eliminarlo
+    const removedItem = cart_items.splice(indexToRemove, 1)[0];
+    /**
+     * Il metodo splice viene utilizzato per rimuovere elementi da un array.
+     *  Nel tuo caso, indexToRemove è l'indice dell'elemento che vuoi rimuovere,
+     *  e 1 indica quanti elementi rimuovere a partire da quell'indice.
+     * Quindi, cart_items.splice(indexToRemove, 1) rimuove un singolo elemento
+     *  dall'array cart_items all'indice specificato.
+     */
+    fs.writeFileSync("./cart-items.json", JSON.stringify(cart_items), {
+      encoding: "utf-8",
+    });
+
+    res.json(removedItem); // Invia l'oggetto rimosso come risposta
+  } else {
+    res.status(404).json({ error: "Prodotto non trovato nel carrello" });
+  }
+});
+
 app.put("/cart-items/:id", (req, res) => {
   const id = req.params.id;
   const quantity = req.body;
