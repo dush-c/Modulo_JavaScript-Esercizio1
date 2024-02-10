@@ -32,36 +32,18 @@ function generateProducts(num: number) {
 
 const products = require("../products.json");
 // let cart_items = require("../cart-items.json");
-let cart_items = [{}];
+let cart_items: any[] = [];
 const app = express();
 app.use(cors());
 app.use(morgan("tiny"));
 app.use(bodyParser.json());
+app.use(express.json());
 
 // let urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(express.static("public"));
 app.get("/main.html", function (req, res) {
   res.sendFile(__dirname + "/" + "index.html");
 });
-
-// app.post("/cart-items", urlencodedParser, function (req, res) {
-//   // Prepare output in JSON format
-//   let response = {
-//     id: req.body.id,
-//     name: req.body.name,
-//     description: req.body.description,
-//     netPrice: req.body.netPrice,
-//     weight: req.body.weight,
-//     discount: req.body.discount,
-//   };
-//   //così vado ad aggiungere un nuovo elemento creandolo da 0, voglio fare in modo di
-//   //poterlo scegliere dalla lista di item all'interno del mio "database"
-//   cart_items.push(response);
-//   fs.writeFileSync("./cart-items.json", JSON.stringify(response), {
-//     encoding: "utf-8",
-//   });
-//   res.end(JSON.stringify(response));
-// });
 
 app.get("/index", (req, res, next) => {
   res.setHeader("Content-Type", "text/plain");
@@ -85,22 +67,37 @@ app.get("/product/:id", (req, res, next) => {
 app.post("/cart-items/add/:id", (req, res) => {
   //con questa chiamata voglio andare ad inserire un oggetto nel mio carrello,
   //prendendolo però dalla lista di prodotti disponibili
-
-  //prima di inserire devo andare a controllare se il prodotto che voglio inserire
-  //non sia già presente.
-  //se è presente vado a modificarne la quantità
-  //altrimenti lo inserisco normalmente
+  //prima di inserirlo però vado a controllare che non sia gia presente al suo interno
   let result = products.find((obj: any) => {
     return obj.id === req.params.id;
   });
-  console.log(result);
-  console.log(cart_items);
+  //ora mi devo assicurare che l'oggetto che vado ad inserire non sia gia presente all'interno del mio carrello
+  //se dovesse esserlo, vado ad aggiungere un nuovo parametro 'quantity'
+  const existingItemIndex = cart_items.findIndex(
+    (item) => item.id === req.params.id
+  );
   //result contiene il prodotto corrispondente all'id
-  cart_items.push(result);
-  fs.writeFileSync("./cart-items.json", JSON.stringify(response), {
-    encoding: "utf-8",
-  });
-  res.end(JSON.stringify(result));
+  if (result) {
+    if (existingItemIndex !== -1) {
+      cart_items[existingItemIndex].quantity += 1;
+    } else {
+      // Se il prodotto non è nel carrello, aggiungilo con quantità 1
+      // const newItem: CartItem = { ...result, quantity: 1 };
+      const newItem = { ...result, quantity: 1 };
+      /*
+      { ...result }: Questo utilizza lo spread operator (...)
+       per copiare tutte le proprietà dell'oggetto result nell'oggetto nuovo.
+        In altre parole, stai creando una copia di tutte le proprietà del prodotto.
+      */
+      cart_items.push(newItem);
+    }
+    fs.writeFileSync("./cart-items.json", JSON.stringify(cart_items), {
+      encoding: "utf-8",
+    });
+    res.send({ result });
+  } else {
+    res.status(404).json({ error: "prodotto non trovato" });
+  }
 });
 
 app.get("/cart-items", (req, res, next) => {
@@ -114,6 +111,27 @@ app.get("/cart-items/:id", (req, res, next) => {
     return obj.id === req.params.id;
   });
   res.json(result);
+});
+
+app.put("/cart-items/:id", (req, res) => {
+  const id = req.params.id;
+  const quantity = req.body;
+  console.log(id, quantity);
+  //controllo che l'id inserito sia presente nel mio carrello
+  const indexToUpdate = cart_items.findIndex((item) => item.id === id);
+
+  if (indexToUpdate !== -1) {
+    //se l'indice esiste aggiorno la quantità
+    cart_items[indexToUpdate].quantity = quantity;
+    fs.writeFileSync("./cart-items.json", JSON.stringify(cart_items), {
+      encoding: "utf-8",
+    });
+
+    res.json(cart_items[indexToUpdate]);
+  } else {
+    res.status(404).json({ error: "Prodotto non trovato nel carrello" });
+  }
+  // res.send(res);
 });
 
 app.listen(3000, () => {
