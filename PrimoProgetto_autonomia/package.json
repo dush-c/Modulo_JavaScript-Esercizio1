@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon",
     "start": "ts-node src/index.ts",
-    "gendata": "ts-node example-data.ts",
+    "gendata": "ts-node productGenerator.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "nodemonConfig": {
