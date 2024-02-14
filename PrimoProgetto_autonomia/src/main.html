@@ -4,31 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primo Progetto Autonomia</title>
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.ts"></script>
 </head>
 
 <body>
-    <!-- "id": "2bb91fce3db483fb53fe7fb1",
-        "name": "Computer",
-        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "netPrice": 586,
-        "weight": 19271,
-        "discount": 0.62 -->
-    <form action="http://localhost:3000/cart-items" method="post">
-        <label for="id">Inserisci l'ID</label>
-        <input type="text" name="id"> <br>
-        <label for="name">Inserisci il nome</label>
-        <input type="text" name="name"><br>
-        <label for="description">Descrizione</label>
-        <input type="text" name="description"><br>
-        <label for="netPrice">Inserisci il prezzo</label>
-        <input type="number" name="netPrice"><br>
-        <label for="weight">Inserisci il peso</label>
-        <input type="number" name="weight"><br>
-        <label for="discount">Inserisci lo sconto</label>
-        <input type="number" name="discount" id=""> <br>
-        <input type="submit" value="Submit">
-    </form>
+
+    <div class="cart-container">
+        <h2>Your Shopping Cart</h2>
+        <ul id="cart-items-list"></ul>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+    </div>
+
+
 </body>
 
 </html>

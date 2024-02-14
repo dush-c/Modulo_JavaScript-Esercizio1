@@ -160,6 +160,31 @@ app.put("/cart-items/:id", (req, res) => {
   // res.send(res);
 });
 
+// document.addEventListener("DOMContentLoaded", function () {
+//   fetch("/cart-items")
+//     .then((response) => response.json)
+//     .then((data) => {
+//       populateCartItems(data);
+//     })
+//     .catch((error) => {
+//       console.error("error fetching cart items data: ", error);
+//     });
+// });
+
+// function populateCartItems(products) {
+//   const productList = document.getElementById("cart-items-list");
+//   if (productList) {
+//     productList.innerHTML = "";
+//     products.forEach((product) => {
+//       const listItem = document.createElement("li");
+//       listItem.textContent = `${product.name} - ${product.description}`;
+//       productList.appendChild(listItem);
+//     });
+//   } else {
+//     console.error("the cart is empty");
+//   }
+// }
+
 app.listen(3000, () => {
   console.log("Server started on port 3000");
 });
