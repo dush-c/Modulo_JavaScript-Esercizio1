@@ -10,6 +10,8 @@ import bodyParser, { json } from "body-parser";
 import fs from "fs";
 
 const products = require("../products.json");
+import { detail, list } from "./api/product/product.controller";
+
 // let cart_items = require("../cart-items.json");
 interface CartItem {
   id: string;
@@ -51,18 +53,9 @@ app.get("/index", (req: Request, res: Response, next: NextFunction) => {
   res.send("Hello World");
 });
 
-app.get("/product", (req: Request, res: Response, next: NextFunction) => {
-  //questa chiamata restituisce la lista di tutti i prodotti
-  res.json(products);
-});
+app.get("/product", list);
 
-app.get("/product/:id", (req: Request, res: Response, next: NextFunction) => {
-  //questa chiamata deve restituire solamente il prodotto con quel determinato id
-  const result = products.find((obj: any) => {
-    return obj.id === req.params.id;
-  });
-  res.json(result);
-});
+app.get("/product/:id", detail);
 
 app.post(
   "/cart-items/add/:id",
@@ -70,7 +63,7 @@ app.post(
     //con questa chiamata voglio andare ad inserire un oggetto nel mio carrello,
     //prendendolo però dalla lista di prodotti disponibili
     //prima di inserirlo però vado a controllare che non sia gia presente al suo interno
-    let result = products.find((obj: any) => {
+    let result = products.find((obj: CartItem) => {
       return obj.id === req.params.id;
     });
     //ora mi devo assicurare che l'oggetto che vado ad inserire non sia gia presente all'interno del mio carrello
@@ -112,7 +105,7 @@ app.get(
   "/cart-items/:id",
   (req: Request, res: Response, next: NextFunction) => {
     //torna un singolo elemento del carrello
-    const result = cart_items.find((obj: any) => {
+    const result = cart_items.find((obj: CartItem) => {
       return obj.id === req.params.id;
     });
     res.json(result);
