@@ -1,27 +1,47 @@
 import { NextFunction, Request, Response } from "express";
-import cartItemSrv from "./cart-item.service";
+import cartItemService from "./cart-item.service";
+import productService from "../product/product.service";
+import { Cart_Item } from "./cart-item.entity";
 
-export const cartDetail = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  const { id } = req.params;
-  const item = await cartItemSrv.getById(id);
-  if (!item) {
-    res.status(404);
-    res.send("Item not found");
+export const list = async (req: Request, res: Response, next: NextFunction) => {
+  const items = await cartItemService.list();
+  res.json(items);
+};
+
+export const add = async (req: Request, res: Response, next: NextFunction) => {
+  const { productId, quantity } = req.body;
+
+  const product = await productService.getById(productId);
+  if (!product) {
+    res.send(404);
     return;
   }
-  res.json(item);
+
+  const newItem: Cart_Item = {
+    product: productId,
+    quantity,
+  };
+
+  const saved = await cartItemService.add(newItem);
+
+  res.json(saved);
 };
 
-export const cartList = async (
+export const updateQuantity = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  const { search }: { search?: string } = req.query;
-  const result = await cartItemSrv.find(search);
-  res.json(result);
+  const { quantity } = req.body;
+
+  const { id } = req.params;
+
+  const updated = await cartItemService.update(id, { quantity });
+  res.json(updated);
 };
+
+export const remove = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {};

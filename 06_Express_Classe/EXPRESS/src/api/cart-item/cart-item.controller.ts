@@ -3,37 +3,53 @@ import productService from "../product/product.service";
 import cartItemService from "./cart-item.service";
 import { CartItem } from "./cart-item.identity";
 
-export const list =async (req: Request, res: Response, next: NextFunction) =>{
+export const list = async (req: Request, res: Response, next: NextFunction) => {
+  const result = await cartItemService.list();
+  res.json(result);
+};
 
-}
+export const add = async (req: Request, res: Response, next: NextFunction) => {
+  const { productId, quantity } = req.body;
+  //   console.log(productId, quantity);
+  //   console.log(req.body);
 
-export const add = async(req: Request, res: Response, next: NextFunction)=>{
-    
-    const { productID, quantity } = req.body; 
-    console.log(productID, quantity); 
-    
-    const product = await productService.getById(productID); 
+  const product = await productService.getById(productId);
 
-    if(product) { 
-        res.send(400); 
-        return; 
-    }
-    
-    const newItem: CartItem = { 
-        product: productID, 
-        quantity
-    }
+  if (!product) {
+    // console.log("not found");
+    res.send(400);
+    return;
+  }
 
-    const saved = await cartItemService.add(newItem); 
+  const newItem: CartItem = {
+    product: productId,
+    quantity,
+  };
 
-    res.send(saved); 
-}
+  const saved = await cartItemService.add(newItem);
 
+  res.send(saved);
+};
 
-export const updateQuantity =async (req: Request, res: Response, next: NextFunction)=>{
-    
-}
+export const updateQuantity = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { productId, quantity } = req.body;
+  const productExist = await productService.getById(productId);
 
-export const remove  = async (req: Request, res: Response, next: NextFunction)=>{
-    
-}
+  if (!productExist) {
+    res.send(400);
+    return;
+  }
+  //   console.log(productExist, quantity);
+  const result = await cartItemService.updateQuantity(productExist, quantity);
+  res.json(result);
+};
+
+export const remove = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {};
