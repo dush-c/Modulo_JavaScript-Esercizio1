@@ -40,6 +40,10 @@ export class CartItemService {
     const results = await cartItemModel.find(q);
     return results;
   }
+  async exist(productId: any) {
+    const result = cartItemModel.find({ product: productId });
+    return result;
+  }
   // async updateQuantity(product: Product, quantity) {
   //   // console.log(Cart.findIndex((item) => item.product === product.id));
   //   const indexToUpdate = Cart.findIndex((item) => item.product === product.id);

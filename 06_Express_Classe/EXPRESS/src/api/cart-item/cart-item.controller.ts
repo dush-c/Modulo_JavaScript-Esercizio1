@@ -23,31 +23,44 @@ export const add = async (req: Request, res: Response, next: NextFunction) => {
     return;
   }
 
-  const newItemdata = {
-    quantity,
-    product: productId,
-  };
+  const exist = await cartItemService.exist(productId);
 
-  const newItem = cartItemModel.create(newItemdata);
-  res.json(newItem);
+  if (!exist) {
+    console.log("ciao");
+
+    const newItemdata = {
+      quantity,
+      product: productId,
+    };
+
+    const newItem = cartItemModel.create(newItemdata);
+    res.json(newItem);
+  }
+  res.send(400);
+  return;
 };
 
-// export const updateQuantity = async (
-//   req: Request,
-//   res: Response,
-//   next: NextFunction
-// ) => {
-//   const { productId, quantity } = req.body;
-//   const productExist = await productService.getById(productId);
+export const updateQuantity = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { productId, quantity } = req.body;
+  const productExist = await productService.getById(productId);
 
-//   if (!productExist) {
-//     res.send(400);
-//     return;
-//   }
-//   //   console.log(productExist, quantity);
-//   const result = await cartItemService.updateQuantity(productExist, quantity);
-//   res.json(result);
-// };
+  if (!productExist) {
+    res.send(400);
+    return;
+  }
+  //   console.log(productExist, quantity);
+  const filter = { product: productId };
+  const update = { quantity };
+  const result = await cartItemModel.findOneAndUpdate(filter, update, {
+    new: true,
+  });
+  // const result = await cartItemService.updateQuantity(productExist, quantity);
+  res.json(result);
+};
 
 // export const remove = async (
 //   req: Request,
