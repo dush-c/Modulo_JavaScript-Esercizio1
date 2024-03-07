@@ -1,10 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import productService from "../product/product.service";
 import cartItemService from "./cart-item.service";
-import { CartItem } from "./cart-item.identity";
+import { CartItem } from "./cart-item.entity";
+import mongoose from "mongoose";
+import { cartItemModel } from "./cart-item.model";
 
 export const list = async (req: Request, res: Response, next: NextFunction) => {
-  const result = await cartItemService.list();
+  const result = await cartItemService.find(req.query);
   res.json(result);
 };
 
@@ -21,35 +23,34 @@ export const add = async (req: Request, res: Response, next: NextFunction) => {
     return;
   }
 
-  const newItem: CartItem = {
-    product: productId,
+  const newItemdata = {
     quantity,
+    product: productId,
   };
 
-  const saved = await cartItemService.add(newItem);
-
-  res.send(saved);
+  const newItem = cartItemModel.create(newItemdata);
+  res.json(newItem);
 };
 
-export const updateQuantity = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  const { productId, quantity } = req.body;
-  const productExist = await productService.getById(productId);
+// export const updateQuantity = async (
+//   req: Request,
+//   res: Response,
+//   next: NextFunction
+// ) => {
+//   const { productId, quantity } = req.body;
+//   const productExist = await productService.getById(productId);
 
-  if (!productExist) {
-    res.send(400);
-    return;
-  }
-  //   console.log(productExist, quantity);
-  const result = await cartItemService.updateQuantity(productExist, quantity);
-  res.json(result);
-};
+//   if (!productExist) {
+//     res.send(400);
+//     return;
+//   }
+//   //   console.log(productExist, quantity);
+//   const result = await cartItemService.updateQuantity(productExist, quantity);
+//   res.json(result);
+// };
 
-export const remove = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {};
+// export const remove = async (
+//   req: Request,
+//   res: Response,
+//   next: NextFunction
+// ) => {};

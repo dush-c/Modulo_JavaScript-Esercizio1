@@ -1,0 +1,110 @@
+[{
+  "_id": {
+    "$oid": "65e1f6df29b54ff6d002ae21"
+  },
+  "id": "cda1d70f7d0adeeeafff2592",
+  "name": "Modern Wooden Sausages",
+  "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+  "netPrice": 5404,
+  "weight": 6043,
+  "discount": 0.47
+},
+{
+  "_id": {
+    "$oid": "65e1f6df29b54ff6d002ae22"
+  },
+  "id": "fafa9996cbe390feb4e87f20",
+  "name": "Awesome Rubber Towels",
+  "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+  "netPrice": 3637,
+  "weight": 16383,
+  "discount": 0.96
+},
+{
+  "_id": {
+    "$oid": "65e1f6df29b54ff6d002ae23"
+  },
+  "id": "c70c4eec88dc58e2fbdc4434",
+  "name": "Ergonomic Plastic Mouse",
+  "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+  "netPrice": 7860,
+  "weight": 16719,
+  "discount": 0.45
+},
+{
+  "_id": {
+    "$oid": "65e1f6df29b54ff6d002ae24"
+  },
+  "id": "bc0c9fe861e40aebeaf87c1b",
+  "name": "Refined Cotton Tuna",
+  "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+  "netPrice": 562,
+  "weight": 9110,
+  "discount": 0.54
+},
+{
+  "_id": {
+    "$oid": "65e1f6df29b54ff6d002ae25"
+  },
+  "id": "3728d3558fe88dd19d33eb7c",
+  "name": "Practical Fresh Bike",
+  "description": "The Football Is Good For Training And Recreational Purposes",
+  "netPrice": 4226,
+  "weight": 616,
+  "discount": 0.47
+},
+{
+  "_id": {
+    "$oid": "65e1f6df29b54ff6d002ae26"
+  },
+  "id": "adac1dedef9fc5aec16fa0df",
+  "name": "Small Fresh Bike",
+  "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+  "netPrice": 4703,
+  "weight": 9603,
+  "discount": 0.29
+},
+{
+  "_id": {
+    "$oid": "65e1f6df29b54ff6d002ae27"
+  },
+  "id": "d28a350ac5ec8c5ea001fdea",
+  "name": "Handcrafted Granite Ball",
+  "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+  "netPrice": 1541,
+  "weight": 5314,
+  "discount": 0.01
+},
+{
+  "_id": {
+    "$oid": "65e1f6df29b54ff6d002ae28"
+  },
+  "id": "56e3f22f8bf79bdbba83ada7",
+  "name": "Refined Cotton Sausages",
+  "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+  "netPrice": 461,
+  "weight": 13762,
+  "discount": 0.61
+},
+{
+  "_id": {
+    "$oid": "65e1f6df29b54ff6d002ae29"
+  },
+  "id": "5f1aadc8fbccbfe0b824b147",
+  "name": "Rustic Granite Hat",
+  "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+  "netPrice": 6136,
+  "weight": 19805,
+  "discount": 0.17
+},
+{
+  "_id": {
+    "$oid": "65e1f6df29b54ff6d002ae2a"
+  },
+  "id": "3ee7bb4bbdaf30415b2bdfae",
+  "name": "Modern Steel Shoes",
+  "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+  "netPrice": 4658,
+  "weight": 16961,
+  "discount": 0.77
+}]

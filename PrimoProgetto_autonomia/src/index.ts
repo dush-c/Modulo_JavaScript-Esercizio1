@@ -5,7 +5,7 @@ import app from "./app";
 
 mongoose.set("debug", true);
 mongoose
-  .connect("mongodb://127.0.0.1:27017/DBGestionaleVI")
+  .connect("mongodb://localhost:27017/DBGestionaleVI")
   .then((_) => {
     console.log("connected to db");
     app.listen(3000, () => {

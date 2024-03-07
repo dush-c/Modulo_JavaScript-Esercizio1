@@ -1,16 +1,15 @@
-import app from './app'; 
+import app from "./app";
+import mongoose from "mongoose";
 
-const port= 3000; 
-app.listen(port, () => {
-	console.log(`Set log ${port}`); 
-});
-
-
-
-
-
-
-
-
-
-
+mongoose.set("debug", true);
+mongoose
+  .connect("mongodb://localhost:27017/cart-2024")
+  .then((_) => {
+    const port = 3000;
+    app.listen(port, () => {
+      console.log(`Server started on port ${port}`);
+    });
+  })
+  .catch((err) => {
+    console.error(err);
+  });

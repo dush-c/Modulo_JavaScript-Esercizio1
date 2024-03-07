@@ -1,82 +1,72 @@
 [
     {
-        "id": "c904b8d46d5bff1ccfe9db17",
-        "name": "Fantastic Plastic Pizza",
+        "name": "Small Frozen Tuna",
         "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "netPrice": 7266,
-        "weight": 1277,
-        "discount": 0.42
+        "netPrice": 2312,
+        "weight": 1364,
+        "discount": 0.11
     },
     {
-        "id": "2504f430d7a4e33a2ceda7fd",
-        "name": "Handcrafted Cotton Hat",
-        "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "netPrice": 4554,
-        "weight": 308,
-        "discount": 0.48
+        "name": "Electronic Concrete Shoes",
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+        "netPrice": 8222,
+        "weight": 178,
+        "discount": 0.91
     },
     {
-        "id": "2468a977cf07667dcfe6cea4",
-        "name": "Awesome Frozen Chicken",
-        "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        "netPrice": 4687,
-        "weight": 872,
-        "discount": 0.84
-    },
-    {
-        "id": "9d36a8556972f93ed430fdca",
-        "name": "Awesome Granite Ball",
-        "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        "netPrice": 2502,
-        "weight": 1756,
-        "discount": 0.39
-    },
-    {
-        "id": "b95daf0c66bc51dfaf8a895e",
-        "name": "Elegant Rubber Chips",
-        "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-        "netPrice": 2279,
-        "weight": 142,
-        "discount": 0.12
-    },
-    {
-        "id": "acafd78aab5df2b5c6a5a1bb",
-        "name": "Sleek Metal Table",
-        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-        "netPrice": 6921,
-        "weight": 1975,
-        "discount": 0.27
-    },
-    {
-        "id": "16c38a34cada5f5e44ea68cd",
-        "name": "Refined Wooden Chicken",
-        "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-        "netPrice": 3832,
-        "weight": 1038,
+        "name": "Intelligent Fresh Pants",
+        "description": "The Football Is Good For Training And Recreational Purposes",
+        "netPrice": 5762,
+        "weight": 975,
         "discount": 0.85
     },
     {
-        "id": "cfdfafdfe8f6a9bdc524f094",
-        "name": "Rustic Plastic Keyboard",
-        "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-        "netPrice": 4678,
-        "weight": 314,
-        "discount": 0.07
-    },
-    {
-        "id": "dbc1debcaa5bf41a79feba8b",
-        "name": "Ergonomic Frozen Car",
-        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "netPrice": 1369,
-        "weight": 1299,
+        "name": "Sleek Fresh Towels",
+        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+        "netPrice": 1144,
+        "weight": 1997,
         "discount": 0.68
     },
     {
-        "id": "ab8b6ff9c71dbac75aeff45c",
-        "name": "Elegant Fresh Tuna",
-        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "netPrice": 621,
-        "weight": 1369,
-        "discount": 0.14
+        "name": "Oriental Plastic Gloves",
+        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+        "netPrice": 2815,
+        "weight": 1889,
+        "discount": 0.64
+    },
+    {
+        "name": "Gorgeous Metal Computer",
+        "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+        "netPrice": 8681,
+        "weight": 71,
+        "discount": 0.56
+    },
+    {
+        "name": "Generic Frozen Shirt",
+        "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+        "netPrice": 2254,
+        "weight": 1757,
+        "discount": 0.01
+    },
+    {
+        "name": "Unbranded Wooden Chips",
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+        "netPrice": 7454,
+        "weight": 1151,
+        "discount": 0.21
+    },
+    {
+        "name": "Practical Bronze Pizza",
+        "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+        "netPrice": 7540,
+        "weight": 1182,
+        "discount": 0.44
+    },
+    {
+        "name": "Tasty Soft Chicken",
+        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+        "netPrice": 6700,
+        "weight": 1894,
+        "discount": 0.39
     }
 ]
