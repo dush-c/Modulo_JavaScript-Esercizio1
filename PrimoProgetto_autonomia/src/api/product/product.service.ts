@@ -15,11 +15,11 @@ export class ProductService {
   // }
 
   async find(search?: string): Promise<Product[]> {
-    let result = ProductModel.find({});
-    console.log();
-    if (search) {
-      result = ProductModel.find({ name: { $regex: search } });
-    }
+    let result = await ProductModel.find();
+    console.log(result);
+    // if (search) {
+    //   result = ProductModel.find({ name: { $regex: search } });
+    // }
 
     return result;
   }

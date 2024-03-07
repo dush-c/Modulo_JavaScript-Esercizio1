@@ -6,7 +6,7 @@ import { ProductModel } from "./product.model";
 export const list = async (req: Request, res: Response, next: NextFunction) => {
   const { search }: { search?: string } = req.query;
   console.log(search);
-  const result = await productSrv.find(search);
+  const result = await productSrv.find();
 
   res.json(result);
 };
