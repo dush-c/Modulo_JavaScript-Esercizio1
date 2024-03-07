@@ -1,10 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 import products from "../../../products.json";
 import productSrv from "./product.service";
+import { ProductModel } from "./product.model";
 
 export const list = async (req: Request, res: Response, next: NextFunction) => {
   const { search }: { search?: string } = req.query;
-
+  console.log(search);
   const result = await productSrv.find(search);
 
   res.json(result);
