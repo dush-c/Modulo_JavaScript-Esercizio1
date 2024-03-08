@@ -2,42 +2,40 @@ import { NextFunction, Request, Response } from "express";
 import productService from "../product/product.service";
 import cartItemService from "./cart-item.service";
 import { CartItem } from "./cart-item.entity";
-import mongoose from "mongoose";
-import { cartItemModel } from "./cart-item.model";
-
+import { NotFoundError } from "../../errors/not-found";
 export const list = async (req: Request, res: Response, next: NextFunction) => {
-  const result = await cartItemService.find(req.query);
-  res.json(result);
+  try {
+    const items = await cartItemService.list();
+    res.json(items);
+  } catch (err) {
+    next(err);
+  }
 };
 
 export const add = async (req: Request, res: Response, next: NextFunction) => {
-  const { productId, quantity } = req.body;
-  //   console.log(productId, quantity);
-  //   console.log(req.body);
+  try {
+    const { productId, quantity } = req.body;
+    //   console.log(productId, quantity);
+    //   console.log(req.body);
 
-  const product = await productService.getById(productId);
+    const product = await productService.getById(productId);
 
-  if (!product) {
-    // console.log("not found");
-    res.send(400);
-    return;
-  }
+    if (!product) {
+      // console.log("not found");
+      throw new NotFoundError();
+    }
 
-  const exist = await cartItemService.exist(productId);
-
-  if (!exist) {
-    console.log("ciao");
-
-    const newItemdata = {
-      quantity,
+    const newItem: CartItem = {
       product: productId,
+      quantity,
     };
 
-    const newItem = cartItemModel.create(newItemdata);
-    res.json(newItem);
+    const saved = await cartItemService.add(newItem);
+
+    res.json(saved);
+  } catch (err) {
+    next(err);
   }
-  res.send(400);
-  return;
 };
 
 export const updateQuantity = async (
@@ -45,21 +43,14 @@ export const updateQuantity = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { productId, quantity } = req.body;
-  const productExist = await productService.getById(productId);
+  try {
+    const { quantity } = req.body;
+    const { id } = req.params;
 
-  if (!productExist) {
-    res.send(400);
-    return;
+    const updated = await cartItemService.update(id, { quantity });
+  } catch (err) {
+    next(err);
   }
-  //   console.log(productExist, quantity);
-  const filter = { product: productId };
-  const update = { quantity };
-  const result = await cartItemModel.findOneAndUpdate(filter, update, {
-    new: true,
-  });
-  // const result = await cartItemService.updateQuantity(productExist, quantity);
-  res.json(result);
 };
 
 // export const remove = async (
