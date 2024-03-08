@@ -10,11 +10,12 @@ cartItemSchema.set("toJSON", {
   virtuals: true,
   transform: (doc, ret) => {
     delete ret._id;
+    delete ret.__v;
     return ret;
   },
 });
 
-export const cartItemModel = mongoose.model<CartItem>(
+export const CartItemModel = mongoose.model<CartItem>(
   "CartItem",
   cartItemSchema
 );

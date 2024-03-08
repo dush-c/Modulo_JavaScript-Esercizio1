@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { Product } from "../product/product.entity";
 
 export interface CartItem {
