@@ -1,0 +1,72 @@
+[
+    {
+        "_id": "60a0c4a27fe876001755c0b1",
+        "title": "The Enigmatic Echo",
+        "netPrice": 29.99,
+        "totalPages": 320,
+        "description": "A mysterious journey through time and space that challenges the boundaries of reality."
+    },
+    {
+        "_id": "60a0c4a27fe876001755c0b2",
+        "title": "Whispers of the Abyss",
+        "netPrice": 24.50,
+        "totalPages": 280,
+        "description": "An ancient prophecy unfolds as dark forces threaten to plunge the world into eternal darkness."
+    },
+    {
+        "_id": "60a0c4a27fe876001755c0b3",
+        "title": "Ephemeral Dreams",
+        "netPrice": 19.99,
+        "totalPages": 240,
+        "description": "A collection of short stories that explore the fleeting nature of dreams and desires."
+    },
+    {
+        "_id": "60a0c4a27fe876001755c0b4",
+        "title": "Chronicles of Celestial Realms",
+        "netPrice": 35.75,
+        "totalPages": 400,
+        "description": "Epic tales of gods and mortals collide in a celestial battle that will reshape the destiny of the universe."
+    },
+    {
+        "_id": "60a0c4a27fe876001755c0b5",
+        "title": "Serenity's Song",
+        "netPrice": 27.80,
+        "totalPages": 300,
+        "description": "A heartwarming story of love and self-discovery set against the backdrop of a quaint coastal town."
+    },
+    {
+        "_id": "60a0c4a27fe876001755c0b6",
+        "title": "Infinite Imagination",
+        "netPrice": 22.50,
+        "totalPages": 260,
+        "description": "Unlock the limitless potential of your mind with this guide to expanding creativity and innovation."
+    },
+    {
+        "_id": "60a0c4a27fe876001755c0b7",
+        "title": "Shadows of Tomorrow",
+        "netPrice": 30.25,
+        "totalPages": 340,
+        "description": "Dystopian futures intertwine as a group of unlikely heroes fights to save what remains of humanity."
+    },
+    {
+        "_id": "60a0c4a27fe876001755c0b8",
+        "title": "Lost in Translation",
+        "netPrice": 18.75,
+        "totalPages": 220,
+        "description": "A humorous exploration of the pitfalls and misunderstandings that arise when languages collide."
+    },
+    {
+        "_id": "60a0c4a27fe876001755c0b9",
+        "title": "Echoes of Eternity",
+        "netPrice": 33.40,
+        "totalPages": 380,
+        "description": "A time-traveling adventure where the past, present, and future converge in a mesmerizing dance of destiny."
+    },
+    {
+        "_id": "60a0c4a27fe876001755c0ba",
+        "title": "Mystic Melodies",
+        "netPrice": 25.20,
+        "totalPages": 280,
+        "description": "Embark on a musical journey through enchanted realms where melodies hold the power to shape reality."
+    }
+]
