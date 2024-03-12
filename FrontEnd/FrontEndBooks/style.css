@@ -1,0 +1,43 @@
+.stored-books {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.header,
+.content {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.header {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+/* 
+.stored-books {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.info,
+.content {
+  display: contents;
+}
+
+.header {
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.values {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+*/

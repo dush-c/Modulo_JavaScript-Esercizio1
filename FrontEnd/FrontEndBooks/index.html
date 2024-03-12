@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+    <title>Library Management System</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Online Library</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <div id="alertuser"></div>
+
+    <div class="container my-3">
+        <h1>Welcome to My Library</h1>
+        <hr />
+        <form id="mylibraryform">
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Book Name</label>
+                <input type="text" class="form-control" id="book-name" required />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Price</label>
+                <input type="text" class="form-control" id="price" aria-describedby="emailHelp" required />
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Total Pages</label>
+                <input type="number" class="form-control" id="total-pages" aria-describedby="emailHelp" required />
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Description</label>
+                <input type="text" class="form-control" id="description" aria-describedby="emailHelp" required />
+
+            </div>
+
+            <button type="submit" class="btn btn-outline-dark">Add Book</button>
+        </form>
+    </div>
+    <div class="container">
+
+
+        <h4>Stored Books</h4>
+        <hr />
+        <table class="stored-books" id="stored-books">
+            <tr class="info">
+                <th class="book-title header">Title</th>
+                <th class="book-price header">Net Price</th>
+                <th class="book-description header">Description</th>
+                <th class="page-total header">Page Total</th>
+            </tr>
+            <tr>
+                <td colspan="4"> <!-- colspan to span across all columns -->
+                    <hr style="border: 1px solid #ddd; margin: 0;">
+                </td>
+            </tr>
+            <!-- <tr class="content-row" id="content-row">
+                <td class="book-title content">Book 1</td>
+                <td class="book-price content">19.99</td>
+                <td class="book-description content">A thrilling adventure</td>
+                <td class="book-total content">300</td>
+            </tr> -->
+            <!-- <tr>
+                <td class="book-title content">Book 2</td>
+                <td class="book-price content">24.99</td>
+                <td class="book-description content">An intriguing mystery</td>
+                <td class="book-total content">250</td>
+            </tr>
+            <tr>
+                <td class="book-title content">Book 3</td>
+                <td class="book-price content">14.99</td>
+                <td class="book-description content">A heartwarming story</td>
+                <td class="book-total content">200</td>
+            </tr> -->
+        </table>
+
+        <!-- 
+
+
+    <table class="stored-books">
+            <tr class="info">
+                <th class="book-title header">
+                    Book Title
+                </th>
+                <th class="book-quantity header">
+                    Quantity
+                </th>
+                <th class="book-price header">
+                    Price
+                </th>
+            </tr>
+            <td class="content">
+                <tr class="values">Gino</tr>
+
+                <tr class="values">4</tr>
+
+                <tr class="values">7.40</tr>
+            </td>
+        </table>
+ -->
+
+
+    </div>
+
+
+</body>
+
+</html>
