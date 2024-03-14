@@ -19,12 +19,7 @@ export class AppComponent {
 
   vat = getVAT('IT');
 
-  getItemPrice(item: CartItem) {
-    const discoutedPrice = getDiscountedPrice(item.netPrice, item.discount);
-    return getPrice(discoutedPrice * item.quantity, this.vat);
-  }
-
-  getDiscountAmount(item: CartItem) {
-    return getDiscountAmount(item.netPrice, item.discount) * item.quantity;
+  changeQuantity(item: CartItem, newQuantity: number) {
+    item.quantity = newQuantity;
   }
 }
