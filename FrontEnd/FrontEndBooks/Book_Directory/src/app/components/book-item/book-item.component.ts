@@ -1,23 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { BOOK } from '../../book';
 import { BookItem } from '../../book.entity';
-import { BookServiceService } from '../../book-service.service';
+import { BookSourceService } from './../../services/book-source.service';
 
 @Component({
   selector: 'app-book-item',
   templateUrl: './book-item.component.html',
   styleUrl: './book-item.component.css',
 })
-export class BookItemComponent implements OnInit {
+export class BookItemComponent {
   dataSource = BOOK;
 
-  BookFromDatabase: BookItem[] = [];
+  // BookFromDatabase: BookItem[] = [];
 
-  constructor(private bookService: BookServiceService) {}
-
-  ngOnInit(): void {
-    this.bookService.getBooks().subscribe((books) => {
-      this.BookFromDatabase = books;
-    });
-  }
+  // constructor(private bookSource: BookSourceService) {
+  //   this.BookFromDatabase = this.bookSource.getBooks();
+  // }
+  private bookSource = inject(BookSourceService);
 }

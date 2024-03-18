@@ -1,8 +1,35 @@
-<li class="list-group-item" *ngFor="let item of BookFromDatabase">
+<!-- <li class="list-group-item" *ngFor="let item of BookFromDatabase">
   <div class="row">
     <div class="col">{{ item.title }}</div>
     <div class="col">{{ item.netPrice }}</div>
     <div class="col">{{ item.description }}</div>
     <div class="col">{{ item.totalPages }}</div>
   </div>
-</li>
+</li> -->
+<div class="comment-list">
+  <h4>Stored Books</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Net Price</th>
+        <th>Description</th>
+        <th>Page Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of BookFromDatabase">
+        <td>{{ book.title }}</td>
+        <td>{{ book.netPrice }}</td>
+        <td>{{ book.description }}</td>
+        <td>{{ book.totalPages }}</td>
+      </tr>
+      <!-- <tr>
+        <td>Book 1</td>
+        <td>19.99</td>
+        <td>A thrilling adventure</td>
+        <td>300</td>
+      </tr> -->
+    </tbody>
+  </table>
+</div>

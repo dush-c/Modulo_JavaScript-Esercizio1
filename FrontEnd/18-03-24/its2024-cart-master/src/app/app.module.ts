@@ -9,9 +9,18 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { SummaryComponent } from './components/summary/summary.component';
 
 @NgModule({
-  declarations: [AppComponent, CartItemComponent, SummaryComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, NgbModule],
+  declarations: [
+    AppComponent,
+    CartItemComponent,
+    SummaryComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    NgbModule
+  ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

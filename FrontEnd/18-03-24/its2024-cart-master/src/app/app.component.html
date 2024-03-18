@@ -2,13 +2,11 @@
   <div id="items-list-container">
     <h3>I tuoi articoli</h3>
     <ul class="list-group" id="items-list">
-      <li class="list-group-item item" *ngFor="let item of items">
+      <li class="list-group-item item" *ngFor="let item of items; trackBy:trackById">
         <app-cart-item
           [item]="item"
           [vat]="vat"
-          (onQuantityChange)="changeQuantity(item, $event)"
-        >
-        </app-cart-item>
+          (onQuantityChange)="changeQuantity(item, $event)"></app-cart-item>
       </li>
     </ul>
   </div>
