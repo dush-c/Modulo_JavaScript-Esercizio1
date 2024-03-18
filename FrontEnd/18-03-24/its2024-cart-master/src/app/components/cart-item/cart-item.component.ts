@@ -1,12 +1,22 @@
-import { ChangeDetectionStrategy, Component, DoCheck, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { CartItem } from '../../cart-item.entity';
-import { getDiscountAmount, getDiscountedPrice, getPrice } from '../../cart-utils';
+import {
+  getDiscountAmount,
+  getDiscountedPrice,
+  getPrice,
+} from '../../cart-utils';
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrl: './cart-item.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartItemComponent {
   @Input()
