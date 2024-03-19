@@ -25,7 +25,7 @@ export class SummaryComponent implements OnChanges {
 
   @Input()
   set vat(value: number | null) {
-    this._vat = value ? value : 0;
+    this._vat = value !== null ? value : 0;
   }
 
   summary = this.updateSummary();

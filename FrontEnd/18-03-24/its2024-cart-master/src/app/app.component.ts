@@ -11,7 +11,7 @@ import { VatService } from './services/vat-/vat-.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   items$ = this.cartSrv.items$;
 
   vat$ = this.vatSrv.value$;
@@ -19,7 +19,8 @@ export class AppComponent {
   constructor(
     protected cartSrv: CartSourceService,
     protected vatSrv: VatService
-  ) {
+  ) {}
+  ngOnInit(): void {
     this.vatSrv.getVat('IT');
   }
   //protected cartSrv = inject(CartSourceService);
