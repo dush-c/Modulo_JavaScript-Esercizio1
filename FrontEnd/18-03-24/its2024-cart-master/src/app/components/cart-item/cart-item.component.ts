@@ -5,7 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { CartItem } from '../../cart-item.entity';
+import { CartItem } from '../../entities/cart-item.entity';
 import {
   getDiscountAmount,
   getDiscountedPrice,
@@ -33,13 +33,19 @@ export class CartItemComponent {
   onQuantityChange = new EventEmitter<number>();
 
   getItemPrice(item: CartItem) {
-    const discountedPrice = getDiscountedPrice(item.netPrice, item.discount);
+    const discountedPrice = getDiscountedPrice(
+      item.product.netPrice,
+      item.product.discount
+    );
 
     return getPrice(discountedPrice * item.quantity, this._vat);
   }
 
   getDiscountAmount(item: CartItem) {
-    return getDiscountAmount(item.netPrice, item.discount) * item.quantity;
+    return (
+      getDiscountAmount(item.product.netPrice, item.product.discount) *
+      item.quantity
+    );
   }
 
   quantityChange(newQuantity: number) {

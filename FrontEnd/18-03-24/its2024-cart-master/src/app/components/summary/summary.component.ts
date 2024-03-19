@@ -5,7 +5,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { CartItem } from '../../cart-item.entity';
+import { CartItem } from '../../entities/cart-item.entity';
 import { getTransportFee, parseItem } from '../../cart-utils';
 
 @Component({

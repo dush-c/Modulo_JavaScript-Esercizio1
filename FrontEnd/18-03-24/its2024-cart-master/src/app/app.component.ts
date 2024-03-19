@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CART } from './cart';
 import { getVAT } from './cart-utils';
-import { CartItem } from './cart-item.entity';
+import { CartItem } from './entities/cart-item.entity';
 import { CartSourceService } from './services/cart-source/cart-source.service';
 import { __values } from 'tslib';
 import { VatService } from './services/vat-/vat-.service';
@@ -30,6 +30,6 @@ export class AppComponent implements OnInit {
   }
 
   changeQuantity(item: CartItem, newQuantity: number) {
-    this.cartSrv.setQuantity(item.id, newQuantity);
+    this.cartSrv.setQuantity(item.product.id, newQuantity);
   }
 }
