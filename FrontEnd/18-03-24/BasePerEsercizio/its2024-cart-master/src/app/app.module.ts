@@ -7,16 +7,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { SummaryComponent } from './components/summary/summary.component';
-import localeIT from '@angular/common/locales/it';
+import localeIt from '@angular/common/locales/it';
 import { CurrencyPipe, registerLocaleData } from '@angular/common';
 import { DiscountAmountPipe } from './pipes/discount-amount.pipe';
 import { CartSourceService } from './services/cart-source/cart-source.service';
-import { VatService } from './services/vat/vat-.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ProductFiltersComponent } from './components/product-filters/product-filters.component';
-registerLocaleData(localeIT);
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { SideCartComponent } from './components/side-cart/side-cart.component';
+registerLocaleData(localeIt);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,22 +28,22 @@ registerLocaleData(localeIT);
     CheckoutComponent,
     ProductsComponent,
     ProductFiltersComponent,
+    ProductCardComponent,
+    SideCartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
     { provide: LOCALE_ID, useValue: 'it' },
     CurrencyPipe,
     CartSourceService,
-    //{provide: CartSourceService, useClass: CartSourceService}
-    VatService,
   ],
   bootstrap: [AppComponent],
 })

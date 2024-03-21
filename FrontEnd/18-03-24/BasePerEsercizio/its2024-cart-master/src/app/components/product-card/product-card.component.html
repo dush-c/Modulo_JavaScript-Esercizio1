@@ -1,0 +1,17 @@
+<div class="card mt-2">
+  <div class="card-body" *ngIf="product">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <!-- <h5 class="card-title">Nome</h5> -->
+    <h6 class="card-subtitle mb-2 text-muted">
+      {{ product.netPrice | currency }}
+    </h6>
+    <!-- <h6 class="card-subtitle mb-2 text-muted">netPrice</h6> -->
+    <p class="card-text">{{ product.description }}</p>
+    <!-- <p class="card-text">description</p> -->
+    <a href="#" class="btn btn-link">details</a>
+  </div>
+  <div class="card-footer text-muted text-end">
+    <input type="number" [(ngModel)]="quantity" class="product-card-quantity" />
+    <button class="btn btn-link" (click)="sendProduct()">Add</button>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="col side-cart" *ngIf="cartItem && cartItem.product">
+  <div class="item-name">{{ cartItem.product.name }}</div>
+
+  <span class="ms-2 d-flex flex-row align-items-center">
+    <label class="me-1" for="quantity">qty: {{ cartItem.quantity }}</label>
+    <!-- <input
+      class="form-control item-quantity"
+      value=""
+      type="number"
+      style="width: 70px"
+    /> -->
+  </span>
+  <span class="ms-2">
+    <!-- <span class="item-price">{{ getItemPrice(item) | currency }} </span>
+      <span class="item-discount">{{ getDiscountAmount(item) | discountAmount }}</span> -->
+  </span>
+</div>
