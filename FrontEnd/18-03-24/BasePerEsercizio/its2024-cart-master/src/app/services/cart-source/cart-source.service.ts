@@ -32,12 +32,10 @@ export class CartSourceService {
   bodyPost = {};
   add($event: CartItem) {
     //vado ad aggiungere un item a 'items$' così che tutti gli elementi che si basano sul mio observable vengono aggiornati in automatico
-    // console.log($event);
-    // const cart = this._items$.value;
-    this._items$.value.push($event);
-    // console.log(cart);
-    // this.http.post<CartItem>('/api/cart-items').subscribe((item) => {
-    //   this._items$.next(item);
-    // });
+
+    const currentCart = this._items$.getValue();
+    const updatedCart = [...currentCart, $event];
+    this._items$.next(updatedCart);
+    console.log(updatedCart);
   }
 }

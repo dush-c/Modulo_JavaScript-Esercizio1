@@ -1,0 +1,61 @@
+<div class="container mt-5" *ngIf="products$ | async as product">
+  <div class="row">
+    <div class="col-md-6">
+      <img
+        src="https://picsum.photos/200/300"
+        class="img-fluid"
+        alt="Product Image"
+      />
+    </div>
+    <div class="col-md-6">
+      <h2 class="mb-3">{{ product.name }}</h2>
+      <p class="lead mb-4">{{ product.description }}</p>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead" class="lead text-success">
+            Price: {{ product.netPrice | currency }}
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p class="lead text-success">
+            Discounted Price: {{ getDiscountAmount(product) | currency }}
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="quantity" class="lead text-success">Quantity: </label>
+        <input type="number" [(ngModel)]="quantity" class="lead text-success" />
+      </div>
+      <div class="col-md-6">
+        <p class="lead text-success">
+          <a href="products" class="btn btn-primary">Back to Product List</a>
+          <a href="products" class="btn btn-secondary">Add</a>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-1 d-none d-md-block">
+      <div class="vertical-bar"><app-side-cart></app-side-cart></div>
+    </div>
+    <!-- <div class="col-md-6">
+      <h2 class="mb-3">Product Name</h2>
+      <p class="lead mb-4">Product Description</p>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">Price:</p>
+        </div>
+        <div class="col-md-6">
+          <p class="lead text-success">Discounted Price:</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row-cols-2">
+          <label for="quantity" class="lead text-success">Quantity: </label>
+          <input type="number" value="1" class="lead text-success" />
+        </div>
+        <div class="row-cols-2">
+          <a href="products" class="btn btn-primary">Back to Product List</a>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>

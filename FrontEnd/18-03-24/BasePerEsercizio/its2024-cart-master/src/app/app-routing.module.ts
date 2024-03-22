@@ -4,30 +4,35 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { productFiltersResolver } from './resolvers/product-filters.resolver';
 import { ProductsResolver } from './resolvers/products.resolver';
+import { DetailsComponent } from './pages/details/details.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/products',
-    pathMatch: 'full'
+    pathMatch: 'full',
+  },
+  {
+    path: 'product/:id',
+    component: DetailsComponent,
   },
   {
     path: 'products',
     component: ProductsComponent,
     resolve: {
       filters: productFiltersResolver,
-      products: ProductsResolver
+      products: ProductsResolver,
     },
-    runGuardsAndResolvers: 'paramsOrQueryParamsChange'
+    runGuardsAndResolvers: 'paramsOrQueryParamsChange',
   },
   {
     path: 'checkout',
-    component: CheckoutComponent
-  }
+    component: CheckoutComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

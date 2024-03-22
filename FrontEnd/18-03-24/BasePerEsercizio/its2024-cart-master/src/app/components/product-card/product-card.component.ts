@@ -25,9 +25,18 @@ export class ProductCardComponent implements OnInit {
   @Output()
   messageEvent = new EventEmitter<CartItem>();
 
+  @Output()
+  productDetails = new EventEmitter<Product>();
+
   quantity: number = 1;
 
   constructor() {}
+
+  openDetailProducts() {
+    if (this.product) {
+      this.productDetails.emit(this.product);
+    }
+  }
 
   // message: string = 'ciao product-card';
   sendProduct() {

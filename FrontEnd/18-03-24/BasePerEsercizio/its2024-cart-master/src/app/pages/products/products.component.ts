@@ -61,12 +61,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.updateQueryParams$.next(value);
   }
 
-  // tmpProductsList: Product[] = [];
-
-  // addProductToCart($event: any) {
-  //   console.log($event);
-  // }
   cartItem: CartItem | undefined;
+
+  // sideCartItems: CartItem[] | null = null;
 
   recieveMessage($event: CartItem) {
     this.cartItem = {
@@ -75,6 +72,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
       quantity: $event.quantity,
     };
     // console.log($event);
-    this.cartSourceSrv.add($event);
+    this.cartSourceSrv.add(this.cartItem);
   }
 }
