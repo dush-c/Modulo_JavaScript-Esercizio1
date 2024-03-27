@@ -11,6 +11,7 @@ import { isNil, omitBy } from 'lodash';
 import { Product } from '../../entities/product.entity';
 import { CartSourceService } from '../../services/cart-source/cart-source.service';
 import { CartItem } from '../../entities/cart-item.entity';
+import { ProductCartAddEvent } from '../../components/product-card/product-card.component';
 
 @Component({
   selector: 'app-products',
@@ -61,17 +62,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.updateQueryParams$.next(value);
   }
 
-  cartItem: CartItem | undefined;
-
-  // sideCartItems: CartItem[] | null = null;
-
-  recieveMessage($event: CartItem) {
-    this.cartItem = {
-      id: $event.id,
-      product: $event.product,
-      quantity: $event.quantity,
-    };
-    // console.log($event);
-    this.cartSourceSrv.add(this.cartItem);
+  addProduct(event: ProductCartAddEvent) {
+    this.cartSourceSrv.add(event.id, event.quantity);
   }
 }

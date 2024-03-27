@@ -10,14 +10,13 @@
         <div class="col" *ngFor="let product of products$ | async">
           <app-product-card
             [product]="product"
-            (messageEvent)="recieveMessage($event)"
+            (add)="addProduct($event)"
           ></app-product-card>
         </div>
       </div>
     </div>
     <div class="col side-cart">
-      <app-side-cart [cartItem]="cartItem"></app-side-cart>
+      <app-side-cart></app-side-cart>
     </div>
   </div>
 </div>
-<!-- *ngFor="let cartItem of sideCartItems" -->

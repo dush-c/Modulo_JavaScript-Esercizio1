@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../entities/product.entity';
 import { getDiscountAmount } from '../../cart-utils';
 import {
@@ -15,6 +15,7 @@ import {
 } from '../../services/product/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { omitBy, isNil } from 'lodash';
+import { ProductCartAddEvent } from '../../components/product-card/product-card.component';
 import { CartSourceService } from '../../services/cart-source/cart-source.service';
 
 @Component({
@@ -23,9 +24,6 @@ import { CartSourceService } from '../../services/cart-source/cart-source.servic
   styleUrl: './details.component.css',
 })
 export class DetailsComponent {
-  @Input()
-  product: Product | undefined;
-
   protected updateQueryParams$ = new ReplaySubject<ProductFilters>();
 
   products$ = this.activatedRoute.params.pipe(
@@ -37,24 +35,12 @@ export class DetailsComponent {
 
   constructor(
     protected productSrv: ProductService,
+    protected cartSrv: CartSourceService,
     protected router: Router,
     protected activatedRoute: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
-    this.updateQueryParams$
-      .pipe(
-        takeUntil(this.destroyed$),
-        map((filters) => omitBy(filters, isNil)),
-        map((filters) => omitBy(filters, (val) => val === '')),
-        debounceTime(150)
-      )
-      .subscribe((filters) => {
-        this.router.navigate([], { queryParams: filters });
-      });
-
-    this.activatedRoute.data.subscribe((data) => console.log(data));
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.destroyed$.next();
@@ -64,5 +50,13 @@ export class DetailsComponent {
   quantity: number = 1;
   getDiscountAmount(item: Product): string | number {
     return getDiscountAmount(item.netPrice, item.discount) * this.quantity;
+  }
+
+  onAdd(id: string) {
+    if (this.quantity > 0) {
+      console.log(this.quantity, id);
+      // this.addProduct.emit({ id: id, quantity: this.quantity });
+      this.cartSrv.add(id, this.quantity);
+    }
   }
 }
