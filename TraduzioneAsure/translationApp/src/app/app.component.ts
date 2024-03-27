@@ -44,9 +44,7 @@ export class AppComponent {
     let apiUrl = `https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=it&to=${this.languageValue}`;
     const body = { text: this.inputText };
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Ocp-Apim-Subscription-Key': 'a7cafa4feb5942549c773a30788ea294',
-      'Ocp-Apim-Subscription-Region': 'switzerlandnorth',
+      
     });
 
     // console.log(body);
